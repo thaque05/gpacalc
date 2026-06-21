@@ -2,7 +2,7 @@ def calculateGPA():
     # ask user how many classes they are taking
     numClasses = input("How many classes are you taking? ")
     # create array for storing Letter grades to be converted
-    userLetterGrades = []
+    userLetterGrades = [] 
     # create array for storing user number grades
     userGrades = []
     # create array for storing credits per class
@@ -24,22 +24,27 @@ def calculateGPA():
     # loop to add the grade number to array storing number per class
     for item in userLetterGrades:
         userGrades.append(grades.get(item))
-     
+    
+    #array for storing quality points -- each course's points multiplied by its credit hours
     qualityPoints = []
+    #loops through the usersgrades and calculates the qualityPoints per class
     for i in range(0,len(userGrades)):
         g = userGrades[i] * userCredits[i]
         qualityPoints.append(g)
 
     qp = 0.0
+    #loop to add qualityPoints for total points
     for item in qualityPoints:
         qp += item
 
+    #loop to add up total number of userCredits
     for item in userCredits:
         totalCredits += item
 
-
+    # variable to store the final gpa number
     final = float(qp/totalCredits)
 
     return final
 
+# prints the calculateGPA function
 print(calculateGPA())
